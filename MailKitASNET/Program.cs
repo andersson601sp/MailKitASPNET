@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace MailKitASPNET
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var mailRepository = new OutlookEmails("outlook.live.com", 993, true, "xxxx@hotmail.com", "xxxxx");
-            var allEmails = mailRepository.GetAllMails();
+            var allEmails = await mailRepository.GetAllMailsAsync();
 
             foreach (var mail in allEmails)
             {
